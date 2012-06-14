@@ -1,7 +1,7 @@
 === Smart Google Code Inserter ===
 Contributors: Oturia Web Design
 Requires at least: 3.3
-Tested up to: 3.3
+Tested up to: 3.4
 Stable tag: 1.0
 Tags: Google, Analytics, Webmaster Tools
 
@@ -19,7 +19,7 @@ http://oturia.com/plugins/smart-google-code-inserter/
 1.0 Tested and launched.
 
 == Frequently Asked Questions ==
-Coming Soon
+None Yet!
 
 == Screenshots ==
 1. This is a screenshot of the admin panel.

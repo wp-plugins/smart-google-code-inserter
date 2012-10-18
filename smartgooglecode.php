@@ -91,7 +91,7 @@ function CheckPPC(){
           <table class="form-table">
             <tbody>
               <tr valign="top" class="alternate">
-                <th style="width:30%;" scope="row"><label>Google Analytics</label></th>
+                <th style="width:30%;" scope="row"><label style="padding: 0 0 16px 0;"><strong>Google Analytics</strong> <br />In this area, paste your Google Analytics tracking code.</label></th>
                 <td style="width:70%;"><textarea rows="15" cols="90" name="sgcgoogleanalytic"><?php echo stripslashes($Varsgcgoogleanalytic); ?></textarea></td>
               </tr>
             </tbody>
@@ -105,10 +105,11 @@ function CheckPPC(){
       <div class="postbox">
         <h3>Webmaster Tools Settings</h3>
         <div>
+		
           <table class="form-table">
             <tbody>
               <tr valign="top" class="alternate">
-                <th style="width:30%;" scope="row"><label>Webmaster Tools</label></th>
+                <th style="width:30%;" scope="row"><label style="padding: 0 0 16px 0;"><strong>Webmaster Tools</strong> <br />In this area, paste your Google Webmaster Tools HTML tag for verifying your site. If you need help getting this code, visit <a target="_blank" href="https://support.google.com/webmasters/bin/answer.py?hl=en&answer=35659">this page</a> </label></th>
                 <td style="width:90%;"><textarea rows="7" cols="90" name="sgcwebtools"><?php echo stripslashes($Varsgcwebtools); ?></textarea></td>
               </tr>
             </tbody>
@@ -121,10 +122,15 @@ function CheckPPC(){
     
     <div class="metabox-holder" style="width: 800px;">
       <div class="postbox">
-        <h3>Conversion Code Settings</h3>
+        <h3>AdWords Conversion Code Settings</h3>
         <div>
+		
           <table class="form-table">
             <tbody>
+			<tr valign="top" class="alternate">
+			<th colspan="2" scope="row">
+			<label style="padding: 0 0 16px 0;"><strong>AdWords</strong> <br />This area is only for the Google AdWords conversion tracking code. It is not required. Select the page you want your conversion code to trigger on (e.g. Thank You or Order Confirmation Page).</label><br />
+			</th></tr>
               <tr valign="top" class="alternate">
                 <th style="width:30%;" scope="row">
                 <label style="padding: 0 0 15px 0;">Caption</label><br />

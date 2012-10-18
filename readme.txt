@@ -17,6 +17,7 @@ http://oturia.com/plugins/smart-google-code-inserter/
 3. Add your Google Analytics tracking code, Webmaster Tools Verification HTML Snippet and/or your Google AdWords Conversion Tracking code to the Smart Google Code settings.
 
 == Changelog ==
+2.1 Added detailed descriptions to the admin panel.
 2.0 Added AdWords Conversion Tracking
 1.0 Tested and launched.
 

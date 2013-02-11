@@ -170,7 +170,7 @@ function CheckPPC(){
     <input name="action" value="savegooglecode" type="hidden" />
   </form>
 </div>
-<?
+<?php 
 }
 
 	//Save Google Code Info

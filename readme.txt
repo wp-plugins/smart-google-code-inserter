@@ -18,8 +18,11 @@ http://oturia.com/plugins/smart-google-code-inserter/
 
 == Changelog ==
 2.2 Corrected an instance of a PHP shortcode in smartgooglecode.php.
+
 2.1 Added detailed descriptions to the admin panel.
-2.0 Added AdWords Conversion Tracking
+
+2.0 Added AdWords Conversion Tracking.
+
 1.0 Tested and launched.
 
 == Frequently Asked Questions ==

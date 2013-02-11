@@ -4,7 +4,7 @@
 #     Plugin URI: http://oturia.com/
 #     Description: Smart Google Analytics, Webmaster Tools and AdWords Code
 #     Author: Jason Whitaker
-#     Version: 2.1 
+#     Version: 2.2 
 #     Author URI: http://oturia.com/
 #     */  
  ini_set( "short_open_tag", 1 ); 

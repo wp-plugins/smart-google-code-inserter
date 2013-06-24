@@ -7,7 +7,7 @@
 #     Version: 3.0 
 #     Author URI: http://oturia.com/
 #     */  
- ini_set( "short_open_tag", 1 ); 
+
 
 if( !class_exists('SmartGoogleCode') )
 {
@@ -43,7 +43,7 @@ if( !class_exists('SmartGoogleCode') )
 
 			global $objSmartGoogleCode;
 		
-			add_menu_page('Smart Google Code', 'Smart Google Code', 'manage_options', 'smartcode', array($objSmartGoogleCode, 'googleCodefrm'));
+			add_menu_page('Smart Google Code', 'Google Code', 'manage_options', 'smartcode', array($objSmartGoogleCode, 'googleCodefrm'));
 	
 		}
 
@@ -111,7 +111,7 @@ jQuery(document).ready(function(e) {
 				<?php } ?> 
 
 
-		var insert='<tr valign="top" class="alternate"><td style="width:30%; border-bottom: 1px solid #DFDFDF;" scope="row"><input type="checkbox" id="chkdel'+LastID+'" name="nchkdel'+LastID+'" /> </td><th style="width:30%;" scope="row"><label style="padding: 0 0 15px 0;">Label or Name</label><br /><input name="ppccap[]" type="text" id="ppccap'+LastID+'" value="" /><br /><br /><br /><label style="padding: 0 0 16px 0;">Please Select Page</label><br /><select name="ppcpageid[]" id="ppcpageid'+LastID+'" style="width: 150px;"><option value="-1">Select Page</option>'+opt+'</select></th><td style="width:90%;"><textarea rows="7" cols="90" id="ppccode'+LastID+'" name="ppccode[]"></textarea></td></tr>';
+		var insert='<tr valign="top" class="alternate"><td style="width:30%; border-bottom: 1px solid #DFDFDF;" scope="row"><input type="checkbox" id="chkdel'+LastID+'" name="nchkdel'+LastID+'" /> </td><th style="width:30%;" scope="row"><label style="padding: 0 0 15px 0;">Caption</label><br /><input name="ppccap[]" type="text" id="ppccap'+LastID+'" value="" /><br /><br /><br /><label style="padding: 0 0 16px 0;">Please Select Page</label><br /><select name="ppcpageid[]" id="ppcpageid'+LastID+'" style="width: 150px;"><option value="-1">Select Page</option>'+opt+'</select></th><td style="width:90%;"><textarea rows="7" cols="90" id="ppccode'+LastID+'" name="ppccode[]"></textarea></td></tr>';
 		  
 		jQuery("#adWordsTable").append(insert);
 	
@@ -148,7 +148,7 @@ return false;
 	
 	function secondFrmSubmit()
 	{
-		if(confirm('sure to delete') ) {
+		if(confirm('Delete this row?') ) {
 			jQuery("#delconf").val("1");
 			jQuery("#adwordsform").submit();
 		} else {
@@ -357,7 +357,7 @@ return false;
 							for($i=0; $i < count($_POST["ppccode"]); $i++ )
 							{	 
 								$data = array();
-								$ppccode = $_POST["ppccode"][$i]; 
+								$ppccode = stripslashes($_POST["ppccode"][$i]); 
 								$ppccap = $_POST["ppccap"][$i];
 								$ppcpageid = $_POST["ppcpageid"][$i];
 		
@@ -395,7 +395,7 @@ return false;
 				if($rows_affected === 1 ){
 					$_POST['notice']= "AdWords successfully added.";
 				} else {
-					$_POST['notice']= "AdWords successfully not added.";
+					$_POST['notice']= "AdWords not added.";
 				}
 		
 		
@@ -418,9 +418,9 @@ return false;
 	function UninstallSmartGoogle() {
 			global $wpdb;
 			
-			delete_option("sgcwebtools");
+			//delete_option("sgcwebtools");
 			
-			delete_option("sgcgoogleanalytic");
+			//delete_option("sgcgoogleanalytic");
 	
 			$table_name = $wpdb->prefix . "smartgoogleadwords";
 			
@@ -479,7 +479,7 @@ return false;
 				$sql = "CREATE TABLE $table_name  (
 						  id bigint(20) NOT NULL AUTO_INCREMENT,
 						  ppccap varchar(200) DEFAULT NULL,
-						  ppccode text,
+						  ppccode longtext,
 						  ppcpageid bigint(20) DEFAULT NULL,
 						  PRIMARY KEY (id)
 					);";

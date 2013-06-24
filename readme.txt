@@ -2,7 +2,7 @@
 Contributors: Oturia Web Design
 Requires at least: 3.3
 Tested up to: 3.5.2
-Stable tag: 2.2
+Stable tag: 3.0
 Tags: Google, Analytics, Webmaster Tools, Oturia
 
 == Description ==

@@ -4,7 +4,7 @@
 #     Plugin URI: http://oturia.com/
 #     Description: Smart Google Analytics, Webmaster Tools and AdWords Code
 #     Author: Oturia
-#     Version: 3.0 
+#     Version: 3.1 
 #     Author URI: http://oturia.com/
 #     */  
 
@@ -43,18 +43,15 @@ if( !class_exists('SmartGoogleCode') )
 
 			global $objSmartGoogleCode;
 		
-			add_menu_page('Smart Google Code', 'Google Code', 'manage_options', 'smartcode', array($objSmartGoogleCode, 'googleCodefrm'));
+			add_options_page('Smart Google Code', 'Smart Google Code', 'manage_options', 'smartcode', array($objSmartGoogleCode, 'googleCodefrm'));
 	
 		}
 
 
 function smart_google_add_js()
 {
-	//echo '<script type="text/javascript" src="'.get_bloginfo('wpurl').'/wp-content/plugins/smart-google-code-inserter/js/jquery-1.7.1.min.js"><//script>';
 	wp_enqueue_script( 'jquery' );
-//	wp_enqueue_script('jquery','','','',true);
 
-		//wp_enqueue_script( 'my-script-handle','', array( 'jquery' ), false, true );
 }
 
 
@@ -73,7 +70,7 @@ $ppccap = get_option( 'ppccap' );
 $ppcpageid = get_option( 'ppcpageid' );
 
 if( $ppccap == "") {
-	$ppccap="ex: mywplead";
+	$ppccap="ex: Lead";
 }
 
 ?>
@@ -106,7 +103,8 @@ jQuery(document).ready(function(e) {
                 <?php
 					  foreach ( $pages as $page ) {
 				?> 
-               opt += '<option value="<?php echo $page->ID ?>"><?php echo $page->post_title; ?></option>';
+
+               opt += '<option value="<?php echo $page->ID ?>"><?php echo str_replace("'", "", $page->post_title); ?></option>';
                 
 				<?php } ?> 
 
@@ -247,8 +245,8 @@ return false;
 				
 			 ?>
           <tr valign="top" class="alternate" >
-                <td style="width:30%; border-bottom: 1px solid #DFDFDF;" scope="row"><input type="checkbox" id="chkdel<?php echo $i+1 ;?>" name="nchkdel<?php echo $i+1 ;?>" /> </td>
-                <td style="width:30%; border-bottom: 1px solid #DFDFDF;" scope="row">
+                <td style="width:10%; border-bottom: 1px solid #DFDFDF;" scope="row"><input type="checkbox" id="chkdel<?php echo $i+1 ;?>" name="nchkdel<?php echo $i+1 ;?>" /> </td>
+                <td style="width:10%; border-bottom: 1px solid #DFDFDF;" scope="row">
                 <label style="padding: 0 0 15px 0;">Caption</label><br />
 				<input type="hidden" name="oId[]" value="<?php echo $adRow->id; ?>"  />
                 <input name="ppccap[]" type="text" id="ppccap<?php echo $i+1 ;?>" value="<?php echo stripslashes($adRow->ppccap); ?>" />
@@ -270,7 +268,7 @@ return false;
                 </select>
                 
                 </td>
-                <td style="width:90%; border-bottom: 1px solid #DFDFDF;"><textarea rows="7" cols="90" id="ppccode<?php echo $i+1 ;?>" name="ppccode[]"><?php echo stripslashes($adRow->ppccode); ?></textarea></td>
+                <td style="width:40%; border-bottom: 1px solid #DFDFDF;"><textarea rows="7" cols="90" id="ppccode<?php echo $i+1 ;?>" name="ppccode[]"><?php echo stripslashes($adRow->ppccode); ?></textarea></td>
           </tr>
               
           <?php $i++; } } else { ?>

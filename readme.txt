@@ -1,8 +1,8 @@
 === Smart Google Code Inserter ===
 Contributors: Oturia Web Design
 Requires at least: 3.3
-Tested up to: 3.5.2
-Stable tag: 3.0
+Tested up to: 3.6
+Stable tag: 3.1
 Tags: Google, Analytics, Webmaster Tools, Oturia
 
 == Description ==
@@ -17,6 +17,8 @@ http://oturia.com/plugins/smart-google-code-inserter/
 3. Add your Google Analytics tracking code, Webmaster Tools Verification HTML Snippet and/or your Google AdWords Conversion Tracking code to the Smart Google Code settings.
 
 == Changelog ==
+3.1 Fixed a jQuery bug, moved menu to "Settings", changed size of AdWords textarea on options page.
+
 3.0 Added the ability to include multiple conversion codes for different pages.
 
 2.2 Corrected an instance of a PHP shortcode in smartgooglecode.php.
@@ -27,8 +29,14 @@ http://oturia.com/plugins/smart-google-code-inserter/
 
 1.0 Tested and launched.
 
-== Frequently Asked Questions ==
-None Yet!
+
+== Upgrade Notice ==
+
+= 3.1 =
+Sites with an apostrophe weren't able to add new conversions. Thanks to Reece Denzel for helping us locate this bug.
+
+= 3.0 =
+We made a change to how we store the AdWords code, so you'll need to deactivate and reactivate the plugin when upgrading to 3.0.
 
 == Screenshots ==
 1. This is a screenshot of the admin panel.

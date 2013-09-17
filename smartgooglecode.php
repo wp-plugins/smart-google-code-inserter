@@ -4,7 +4,7 @@
 #     Plugin URI: http://oturia.com/
 #     Description: Smart Google Analytics, Webmaster Tools and AdWords Code
 #     Author: Oturia
-#     Version: 3.1 
+#     Version: 3.2 
 #     Author URI: http://oturia.com/
 #     */  
 
@@ -36,7 +36,7 @@ if( !class_exists('SmartGoogleCode') )
 									
 									
 				register_activation_hook( __FILE__, array($this, 'InstallSmartDefaultValues') );									
-				register_deactivation_hook(__FILE__, array($this, 'UninstallSmartGoogle'));
+				//register_deactivation_hook(__FILE__, array($this, 'UninstallSmartGoogle'));
 		}
 		
 		function my_plugin_menu() {

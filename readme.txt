@@ -1,8 +1,8 @@
 === Smart Google Code Inserter ===
 Contributors: Oturia Web Design
 Requires at least: 3.3
-Tested up to: 3.6
-Stable tag: 3.2
+Tested up to: 3.7.1
+Stable tag: 3.3
 Tags: Google, Analytics, Webmaster Tools, Oturia
 
 == Description ==
@@ -17,6 +17,8 @@ http://oturia.com/plugins/smart-google-code-inserter/
 3. Add your Google Analytics tracking code, Webmaster Tools Verification HTML Snippet and/or your Google AdWords Conversion Tracking code to the Smart Google Code settings.
 
 == Changelog ==
+3.3 Tested compatibility with WP 3.7.1. Added isset to post actions to remove WP Debug errors.
+
 3.2 Removed deactivation hook that deletes data upon deactivation.
 
 3.1 Fixed a jQuery bug, moved menu to "Settings", changed size of AdWords textarea on options page.

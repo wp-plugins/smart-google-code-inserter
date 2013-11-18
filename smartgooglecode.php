@@ -4,7 +4,7 @@
 #     Plugin URI: http://oturia.com/
 #     Description: Smart Google Analytics, Webmaster Tools and AdWords Code
 #     Author: Oturia
-#     Version: 3.2 
+#     Version: 3.3 
 #     Author URI: http://oturia.com/
 #     */  
 
@@ -26,11 +26,11 @@ if( !class_exists('SmartGoogleCode') )
 				add_action( 'admin_head', array($this, 'smart_google_add_js'),5 );
 				
 			# Update General Settings
-				if( $_POST['action'] == 'savegooglecode' )
+				if(isset($_POST['action']) && $_POST['action'] == 'savegooglecode' )
 					add_action( 'init', array($this,'saveGoogleCode') );
 									
 
-				if( $_POST['action'] == 'saveadwords' )
+				if(isset($_POST['action']) &&  $_POST['action'] == 'saveadwords' )
 					add_action( 'init', array($this,'saveGoogleAdWords') );
 									
 									

@@ -4,7 +4,7 @@
 #     Plugin URI: http://oturia.com/
 #     Description: Smart Google Analytics, Webmaster Tools and AdWords Code
 #     Author: Oturia
-#     Version: 3.3 
+#     Version: 3.4 
 #     Author URI: http://oturia.com/
 #     */  
 
@@ -109,7 +109,7 @@ jQuery(document).ready(function(e) {
 				<?php } ?> 
 
 
-		var insert='<tr valign="top" class="alternate"><td style="width:30%; border-bottom: 1px solid #DFDFDF;" scope="row"><input type="checkbox" id="chkdel'+LastID+'" name="nchkdel'+LastID+'" /> </td><th style="width:30%;" scope="row"><label style="padding: 0 0 15px 0;">Caption</label><br /><input name="ppccap[]" type="text" id="ppccap'+LastID+'" value="" /><br /><br /><br /><label style="padding: 0 0 16px 0;">Please Select Page</label><br /><select name="ppcpageid[]" id="ppcpageid'+LastID+'" style="width: 150px;"><option value="-1">Select Page</option>'+opt+'</select></th><td style="width:90%;"><textarea rows="7" cols="90" id="ppccode'+LastID+'" name="ppccode[]"></textarea></td></tr>';
+		var insert='<tr valign="top"><td style="width:30%; border-bottom: 1px solid #DFDFDF;" scope="row"><input type="checkbox" id="chkdel'+LastID+'" name="nchkdel'+LastID+'" /> </td><th style="width:30%;border-bottom: 1px solid #DFDFDF;" scope="row"><label style="padding: 0 0 15px 0;">Name of Conversion</label><br /><input name="ppccap[]" type="text" id="ppccap'+LastID+'" value="" /><br /><br /><br /><label style="padding: 0 0 16px 0;">Please Select Page</label><br /><select name="ppcpageid[]" id="ppcpageid'+LastID+'" style="width: 150px;"><option value="-1">Select Page</option>'+opt+'</select></th><td style="width:90%;border-bottom: 1px solid #DFDFDF;"><textarea rows="7" cols="55" id="ppccode'+LastID+'" name="ppccode[]"></textarea></td></tr>';
 		  
 		jQuery("#adWordsTable").append(insert);
 	
@@ -160,7 +160,7 @@ return false;
 
 
 <div class="wrap">
-  <h2>Smart Google Code</h2>
+  <h2>Smart Google Code Settings</h2>
   <?php if ( !empty($_POST ) ) { ?>
   <div id="message" class="updated fade">
     <p><strong>
@@ -171,43 +171,43 @@ return false;
   <?php } ?>
   <form name="generalform" id="generalform" method="post" action="" >
     <div class="metabox-holder" style="width: 800px;">
-      <div class="postbox">
-        <h3>Google Analytics Settings</h3>
+       <div class="postbox">
+		<h3 class="hndle">Google Analytics</h3>
+		<p style="margin-left:12px;">In this area, paste your Google Analytics tracking code.</p>
         <div>
           <table class="form-table">
             <tbody>
-              <tr valign="top" class="alternate">
-                <th style="width:30%;" scope="row"><label style="padding: 0 0 16px 0;"><strong>Google Analytics</strong> <br />In this area, paste your Google Analytics tracking code.</label></th>
+              <tr valign="top">
                 <td style="width:70%;"><textarea rows="15" cols="90" name="sgcgoogleanalytic"><?php echo stripslashes($Varsgcgoogleanalytic); ?></textarea></td>
               </tr>
+
             </tbody>
           </table>
         </div>
-      </div>
+		</div>
     </div>
     <!-- end .metabox-holder -->
     
     <div class="metabox-holder" style="width: 800px;">
-      <div class="postbox">
-        <h3>Webmaster Tools Settings</h3>
+	<div class="postbox">
+        <h3 class="hndle">Webmaster Tools</h3>
+		<p style="margin-left:12px;">In this area, paste your Google Webmaster Tools HTML tag for verifying your site. If you need help getting this code, visit <a target="_blank" href="https://support.google.com/webmasters/bin/answer.py?hl=en&answer=35659">this page</a></p>
         <div>
 		
           <table class="form-table">
             <tbody>
-              <tr valign="top" class="alternate">
-                <th style="width:30%;" scope="row"><label style="padding: 0 0 16px 0;"><strong>Webmaster Tools</strong> <br />In this area, paste your Google Webmaster Tools HTML tag for verifying your site. If you need help getting this code, visit <a target="_blank" href="https://support.google.com/webmasters/bin/answer.py?hl=en&answer=35659">this page</a> </label></th>
+              <tr valign="top">
                 <td style="width:90%;"><textarea rows="7" cols="90" name="sgcwebtools"><?php echo stripslashes($Varsgcwebtools); ?></textarea></td>
               </tr>
             </tbody>
           </table>
         </div>
-      </div>
     </div>
     <!-- end .metabox-holder -->
       <input type="submit" name="button" id="button" class="button-primary" value="<?php echo _e("Save Changes"); ?>" />
     <input name="action" value="savegooglecode" type="hidden" />
   </form><br />
-
+</div> 
 </div>    
     
      <form name="adwordsform" id="adwordsform" method="post" action="" onsubmit="return validate();">
@@ -217,16 +217,14 @@ return false;
     <div class="metabox-holder" style="width: 800px;">
       <div class="postbox">
         <h3>AdWords Conversion Code Settings</h3>
+		<p style="margin-left:12px;">This area is only for the Google AdWords conversion tracking code. It is not required. Select the page you want your conversion code to trigger on (e.g. Thank You or Order Confirmation Page).</p>
         <div>
 		
         
         
           <table class="form-table">
             <tbody>
-			<tr valign="top" class="alternate">
-			<th colspan="2" scope="row">
-			<label style="padding: 0 0 16px 0;"><strong>AdWords</strong> <br />This area is only for the Google AdWords conversion tracking code. It is not required. Select the page you want your conversion code to trigger on (e.g. Thank You or Order Confirmation Page).</label><br />
-			</th></tr>
+
             <tr><td>
             <input type="button" value="Select All" id="selectallbtn"/>&nbsp;&nbsp;<input type="button" value="Delete" onclick="secondFrmSubmit();" />
             </td>
@@ -244,10 +242,10 @@ return false;
 				foreach($adRows as $adRow) {
 				
 			 ?>
-          <tr valign="top" class="alternate" >
+          <tr valign="top">
                 <td style="width:10%; border-bottom: 1px solid #DFDFDF;" scope="row"><input type="checkbox" id="chkdel<?php echo $i+1 ;?>" name="nchkdel<?php echo $i+1 ;?>" /> </td>
                 <td style="width:10%; border-bottom: 1px solid #DFDFDF;" scope="row">
-                <label style="padding: 0 0 15px 0;">Caption</label><br />
+                <label style="padding: 0 0 15px 0;">Name of Conversion</label><br />
 				<input type="hidden" name="oId[]" value="<?php echo $adRow->id; ?>"  />
                 <input name="ppccap[]" type="text" id="ppccap<?php echo $i+1 ;?>" value="<?php echo stripslashes($adRow->ppccap); ?>" />
                 
@@ -268,15 +266,15 @@ return false;
                 </select>
                 
                 </td>
-                <td style="width:40%; border-bottom: 1px solid #DFDFDF;"><textarea rows="7" cols="90" id="ppccode<?php echo $i+1 ;?>" name="ppccode[]"><?php echo stripslashes($adRow->ppccode); ?></textarea></td>
+                <td style="width:40%; border-bottom: 1px solid #DFDFDF;"><textarea rows="7" cols="55" id="ppccode<?php echo $i+1 ;?>" name="ppccode[]"><?php echo stripslashes($adRow->ppccode); ?></textarea></td>
           </tr>
               
           <?php $i++; } } else { ?>
 
-          <tr valign="top" class="alternate" >
+          <tr valign="top">
            <td style="width:30%; border-bottom: 1px solid #DFDFDF;" scope="row"><input type="checkbox" id="chkdel1" name="nchkdel1" /> </td>
                 <td style="width:30%; border-bottom: 1px solid #DFDFDF;" scope="row">
-                <label style="padding: 0 0 15px 0;">Caption</label><br />
+                <label style="padding: 0 0 15px 0;">Name of Conversion</label><br />
 
                 <input name="ppccap[]" type="text" id="ppccap1" value="ex: mywplead" />
                 
@@ -299,7 +297,7 @@ return false;
                 </select>
                 
                 </td>
-                <td style="width:90%; border-bottom: 1px solid #DFDFDF;"><textarea rows="7" cols="90" id="ppccode1" name="ppccode[]"></textarea></td>
+                <td style="width:90%; border-bottom: 1px solid #DFDFDF;"><textarea rows="7" cols="55" id="ppccode1" name="ppccode[]"></textarea></td>
           </tr>
 
 
